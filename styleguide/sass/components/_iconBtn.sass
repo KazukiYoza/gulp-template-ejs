@@ -1,0 +1,21 @@
+/* アイコン付きボタン */
+.beforeIconBtn
+    position: relative
+    display: inline-block
+    padding: .2em .3em
+    border: 1px solid currentColor
+    color: #e25c00
+    text-decoration: none
+    transition: .25s
+    &:hover,&:focus
+        background-color: #e25c00
+        color: #fff
+    &::before
+        display: inline-block
+        margin-right: 0.5em
+        font-family: 'Font Awesome 5 Free'
+        font-weight: 900
+        
+.beforeIconBtn--download
+    &::before
+        content: '\f019'

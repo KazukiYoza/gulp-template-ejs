@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width,initial-scale=1.0" name="viewport" />
+    <meta content="telephone=no" name="format-detection" />
+
+    <!-- noindex -->
+    <meta name="robots" content="noindex">
+
+    <!-- meta情報 -->
+    <title><%= title %></title>
+    <meta content="<%= description %>" name="description" />
+    <meta content="<%= keywords %>" name="keywords" />
+
+    <!-- ogp -->
+    <meta content="<%= title %>" property="og:title" />
+    <meta content="" property="og:type" />
+    <meta content="" property="og:url" />
+    <meta content="" property="og:image" />
+    <meta content="<%= title %>" property="og:site_name" />
+    <meta content="<%= description %>" property="og:description" />
+
+    <!-- ファビコン -->
+    <link href="favicon.ico" rel="icon" />
+
+    <!-- css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.5.4/vegas.min.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link href="<%= rootPath %>assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- ここからヘッダー-->
+    <header class="header">
+        <div class="container">
+            <div class="site">
+                <a href="#!">
+                    <div>SITE</div>
+                </a>
+            </div>
+            <nav class="gnavi">
+                <ul class="menu-items">
+                    <li class="menu-item"><a href="">メニュー１</a></li>
+                    <li class="menu-item"><a href="">メニュー２</a></li>
+                    <li class="menu-item"><a href="">メニュー３</a></li>
+                </ul>
+            </nav>
+
+            <!-- ハンバーガーメニュー -->
+            <button class="nav-button js-nav-open" onClick="navFunc()"></button>
+            <!-- ハンバーガーメニュー -->
+        </div>
+    </header>

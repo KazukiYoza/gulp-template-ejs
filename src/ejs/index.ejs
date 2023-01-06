@@ -1,0 +1,55 @@
+<% rootPath = './'; %><%# ルートディレクトリまでのパス %>
+<%#_ ▼共通部分▼ %>
+<%- include( 'common/_header',
+{
+	title: 'タイトル',
+	description: 'ディスクリプション',
+	keywords: 'キーワード1,キーワード2',
+} ) %>
+<%#_ ▲共通部分▲ %>
+
+<div class="mv">
+    <div class="mv__inner">
+        <picture>
+            <source media="(min-width: 769px)" srcset="<%= rootPath %>assets/img/mv_pc.png">
+            <source media="(max-width: 768px)" srcset="<%= rootPath %>assets/img/mv_sp.png">
+            <img src="<%= rootPath %>assets/img/mv_pc.png" alt="">
+        </picture>
+    </div>
+</div>
+<!-- /.mv -->
+<main>
+    <!-- content -->
+    <div id="content">
+        <section>
+            <div class="container">
+                <div class="lead">
+                    <h2>ここに見出しが入ります。</h2>
+                    <p>ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。</p>
+                </div>
+                <div class="cards">
+                    <%# リストデータを外部ファイルより呼び出し %><%- include("./data/_listData"); %>
+                    <% for (var item of list) { %>
+                        <article class="card cards__item">
+                            <figure class="card__img BUTTON">
+                                <!-- <img src="<%= rootPath %>assets/img/img_card.png" alt=""> -->
+                                <img src="<%= rootPath %>assets/img/<%= item.image  %>.png" alt="">
+                            </figure>
+                            <div class="card__body">
+                                <h3 class="card-title"><%= item.title %></h3>
+                                <p class="card-text"><%= item.text %></p>
+                                <a href="<%= rootPath %><%= item.link %>" class="button card__btn">BUTTON</a>
+                            </div>
+                        </article>
+                    <% } %> 
+                </div><!-- /.cards -->
+            </div><!-- /.container -->
+        </section>
+
+        
+    </div><!-- /content -->
+</main>
+
+<%#_ フッター共通部分%>
+<%- include("./common/_footer") %>
+<%- include("./common/_script") %>

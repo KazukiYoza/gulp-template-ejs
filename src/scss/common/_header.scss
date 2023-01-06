@@ -1,0 +1,65 @@
+@use "global" as *;
+
+// ヘッダー
+.header{
+    padding: 10px 0;
+    .container{
+        width: 100%;
+        max-width: 1240px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        @include mq(md){
+            width: 100%;
+        }
+    }
+
+    .menu-item:not(:last-child){
+        &:after{
+            content: '';
+            display: block;
+            width: 0%;
+            height: 2px;
+            border-radius: 10px;
+            background-color: $accent;
+            transition: .5s;
+        }
+        &:hover{
+            &:after{
+                width: 100%;
+                transition: .5s;
+            }
+        }
+    }
+
+}
+
+.site{
+    font-size: 3rem;
+    font-weight: bold;
+    min-width: 70px;
+    height: auto;
+}
+
+.is-open{
+    .gnavi{
+        // transform: translateX(0)
+        left: 0;
+        transition: .5s;
+    }
+    .nav-button{
+        color: #ffffff;
+        &::before{
+            box-shadow: none;
+            transform: translateY(2px) rotateZ(45deg);
+            transition: .5s;
+        }
+        &::after{
+            transform: rotate(-45deg);
+            transition: .5s;
+        }
+    }
+}

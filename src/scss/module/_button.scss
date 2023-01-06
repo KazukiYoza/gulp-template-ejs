@@ -1,0 +1,36 @@
+/* ボタン */
+.button{
+    font-size: 18px;
+    color: gray;
+    // line-height: 1.2;
+    line-height: 1;
+    font-weight: 600;
+    border: 1px solid #5D5C4F;
+    border-radius: 80px;
+    // max-width: 284px;
+    opacity: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: .5s;
+    text-decoration:none;
+    @media screen and (max-width: 767px) {
+        max-width: 100%;
+    }
+    &::after{
+        content: "→";
+        display: block;
+        width: 19px;
+        height: 18px;
+        margin-top: -2px;
+        margin-left: auto;
+        margin-right: 0;
+        background-size: contain;
+        background-repeat: no-repeat;
+  }
+  &:hover{
+    background-color: gray;
+    color: #ffffff;
+  }
+}

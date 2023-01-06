@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.container{
+    padding: 0 15px;
+    @include mq(md){
+        max-width: 1160px;
+        margin: 0 auto;
+    }
+}

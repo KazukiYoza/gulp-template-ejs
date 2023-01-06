@@ -1,0 +1,48 @@
+$xl: 1200px
+$lg: 992px
+$md: 768px
+$sm: 576px
+$xs: 420px
+$xxs: 380px
+
+// メディアクエリ
+@mixin xxl
+    @media only screen and (min-width: 1921px)
+        @content
+
+@mixin xl
+  @media (max-width: ($xl)) 
+    @content
+
+@mixin lg
+    @media (max-width: ($lg))
+        @content
+
+@mixin md
+    @media (max-width: ($md))
+        @content
+
+@mixin sm 
+    @media (max-width: ($sm))
+        @content
+
+@mixin xs
+    @media (max-width: ($xs))
+        @content
+
+@mixin xxs
+    @media (max-width: ($xxs))
+        @content
+
+@mixin pc-only
+    @media screen and (min-width: (#{$lg + 1px}))
+        @content
+
+@mixin tab-only
+    @media screen and (min-width: ($md)) and (max-width: ($lg))
+        @content
+
+@mixin sp-only
+    @media (max-width: (#{$md - 1px}))
+        @content
+

@@ -1,0 +1,35 @@
+@use "global" as *;
+
+.card{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto !important;
+    border: none;
+    &:last-of-type{
+        margin-right: 0;
+    }
+}
+
+.card__img{
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+}
+
+.card-text{
+    margin-bottom: 20px;
+}
+
+
+.card__body{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.card__btn{
+    text-transform: uppercase;
+    margin-top: auto;
+}

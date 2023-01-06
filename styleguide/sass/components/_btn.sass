@@ -1,0 +1,74 @@
+/* ボタン */
+
+$btnColor1: #e25c00
+// $btnColor2: #f1de00
+$btnColor2: #00f178
+
+//基本形
+.btn
+    display: inline-block
+    width: 300px
+    max-width: 100%
+    padding: 20px 10px
+    background-color: $btnColor1
+    border: 2px solid transparent
+    box-shadow: 0 3px 6px rgba(0,0,0,.16)
+    color: #fff
+    font-size: 1.125rem
+    text-align: center
+    text-decoration: none
+    transition: 0.25s
+    &:hover,&:focus
+        background-color: #fff
+        border-color: currentColor
+        color: $btnColor1
+
+//矢印付き
+.btn--arrowRight
+    position: relative
+    padding-right: 2em
+    padding-left: 1.38em
+    &:after
+        content: "➡"
+        position: absolute
+        top: 50%
+        right: 0.83em
+        font-family: 'Font Awesome'
+        font-weight: 900
+        transform: translateY(-50%)
+
+//大ボタン
+.btn--large
+    width: 340px
+    padding-top: 25px
+    padding-bottom: 25px
+    font-size: 1.375rem
+
+//色違い
+.btn--warning
+    background-color: $btnColor2
+    color: #222
+    &:hover,&:focus
+        background-color: #fff
+        border-color: currentColor
+        color: $btnColor2
+
+//角丸ボタン
+.roundedBtn
+    display: inline-block
+    width: 236px
+    max-width: 100%
+    padding: 15px 10px
+    background-color: $btnColor1
+    border: 2px solid transparent
+    border-bottom-color: #d40152
+    border-radius: 10px
+    color: #fff
+    font-size: 1.125rem
+    text-align: center
+    text-decoration: none
+    transition: .25s
+    &:hover,&:focus
+        background-color: #fff
+        border-color: currentColor
+        color: $btnColor1

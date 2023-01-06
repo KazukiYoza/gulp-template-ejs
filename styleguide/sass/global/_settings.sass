@@ -1,0 +1,165 @@
+@use "sass:math"
+
+/* ============================================================
+ * 色の設定
+ * ============================================================ */
+
+// サイトカラー
+$primaryColor: #ffffff
+$secondaryColor: #e9ece8
+$accentColor: #b75865
+$textColor: #54603f
+$white: #fff
+$black: #000
+
+// フォントカラー
+h3, h4, h5, p, a 
+  color: $black
+
+/* ============================================================
+ * フォント設定
+ * ============================================================ */
+
+// ※検証ツールでしっかり反映されているか確認する
+$base-font-family:'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif
+$second-font-family:'Libre Baskerville', serif
+
+body 
+    font-family: $base-font-family
+    color: $black
+
+body,h1,h2,h3,p,figure,ul
+    margin: 0
+    padding: 0
+    list-style: none
+
+a
+    text-decoration: none
+    color: inherit
+
+// フォントウェイト
+$regular: 300
+$normal: 400
+$bold: 700
+
+@charset "UTF-8"
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap')
+
+@font-face 
+    font-family: 'Noto Sans JP'
+    font-style: normal
+    font-weight: 400
+    src: url('../../assets/fonts/NotoSansCJKjp-Regular.woff2') format('woff2'),url('../assets/fonts/NotoSansCJKjp-Regular.woff') format('woff'),url('../assets/fonts/NotoSansCJKjp-Regular.ttf')  format('truetype'),
+
+@font-face 
+    font-family: 'Noto Sans JP'
+    font-style: normal
+    font-weight: 500
+    src: url('../../assets/fonts/NotoSansCJKjp-Medium.woff2') format('woff2'), url('../assets/fonts/NotoSansCJKjp-Medium.woff') format('woff'), url('../assets/fonts/NotoSansCJKjp-Medium.ttf')  format('truetype'),
+
+@font-face 
+    font-family: 'Noto Sans JP'
+    font-style: normal
+    font-weight: 800
+    src: url('../../assets/fonts/NotoSansCJKjp-Bold.woff2') format('woff2'), url('../assets/fonts/NotoSansCJKjp-Bold.woff') format('woff'), url('../assets/fonts/NotoSansCJKjp-Bold.ttf')  format('truetype'),
+
+@font-face 
+    font-family: 'Noto Sans JP'
+    font-style: normal
+    font-weight: 900
+    src: url('../../assets/fonts/NotoSansCJKjp-Black.woff2') format('woff2'), url('../assets/fonts/NotoSansCJKjp-Black.woff') format('woff'), url('../assets/fonts/NotoSansCJKjp-Black.ttf')  format('truetype'),
+
+*
+    box-sizing: border-box
+
+
+
+/* ============================================================
+ * インナー幅設定
+ * ============================================================ */
+
+// コンテンツのインナー幅（最も共通の幅が多い部分）
+$inner: 1140px
+// ※キャンパス幅ではなくインナーの幅を指す
+
+// 余白
+$padding-pc: 25px
+$padding-sp: 20px
+$padding-ssp: 10px
+// ※PC時：デザインカンプの余白の幅ではない。PC時は通常25pxで大丈夫！
+
+
+
+
+
+
+/* ============================================================
+ * メディアクエリとブレークポイントの設定
+ * ============================================================ */
+
+$xl: 1200px
+$lg: 992px
+$md: 768px
+$sm: 576px
+$xs: 420px
+$xxs: 380px
+
+// メディアクエリ
+@mixin xxl
+    @media only screen and (min-width: 1921px)
+        @content
+
+@mixin xl
+  @media (min-width: ($xl)) 
+    @content
+
+@mixin lg
+    @media (min-width: ($lg))
+        @content
+
+@mixin md
+    @media (min-width: ($md))
+        @content
+
+@mixin sm 
+    @media (min-width: ($sm))
+        @content
+
+@mixin xs
+    @media (min-width: ($xs))
+        @content
+
+@mixin xxs
+    @media (min-width: ($xxs))
+        @content
+
+@mixin mq($min,$max)
+    @media (min-width: ($min)+px) and (max-width: ($max)+px)
+        @content
+
+/* ============================================================
+ * サイズの設定
+ * ============================================================ */
+
+$size1: 5vw
+$size1-half: calc($size1 / 2)
+$size2: calc($size1 * 2)
+$size3: calc($size1 * 3)
+$size4: calc($size1 * 4)
+
+
+/* ============================================================
+ * 非表示の設定
+ * ============================================================ */
+//750px以上を表示
+.u-desktop 
+    display: none
+    +md
+        display: block
+
+//モバイルのみ表示
+.u-mobile 
+    +md 
+        display: none 
+
+

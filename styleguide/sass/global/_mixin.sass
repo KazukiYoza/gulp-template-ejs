@@ -1,0 +1,63 @@
+//アニメーションの設定
+@mixin keyframes($animation-name) 
+    @keyframes #$animation-name 
+        @content
+    @-webkit-keyframes #$animation-name
+        @content 
+    @-moz-keyframes #$animation-name 
+        @content
+  
+@mixin animation($animation-name) 
+  -webkit-animation: $animation-name
+  -moz-animation: $animation-name
+  animation: $animation-name
+  -webkit-animation-fill-mode: both
+  -moz-animation-fill-mode: both
+  animation-fill-mode: both
+
+
+// 同タイプの背景色のみを変更するパーツ
+=button($type: main) 
+    @if $type == 'main' 
+        background: red
+    @else if $type == 'sub' 
+        background: brue
+    @else 
+        background: gray
+
+
+// 文字リンクカラー
+=link-color($normal,$hover)
+    color: $normal
+    &:hover
+        color: $hover
+        text-decoration: none
+    
+
+@mixin aspect-ratio($width, $height) 
+    position: relative
+    &::before 
+        content: ''
+        float: left
+        padding-top: calc($height / $width) * 100%
+    &::after 
+        content: ''
+        display: block
+        clear: both
+    & > :first-child 
+        height: 100%
+        left: 0
+        position: absolute
+        top: 0
+        width: 100%
+  
+// 背景色のグラデーション
+@mixin gradient($direction: 0deg, $color-1: #f571fa, $point-1, $color-2: #2be6ff ,$point-2) 
+    background-image: linear-gradient($direction, $color-1 $point-1, $color-2 $point-2)
+
+
+//文字色を背景色に合わせる
+@mixin text-clip
+    -webkit-background-clip: text
+    background-clip: text
+    -webkit-text-fill-color: transparent

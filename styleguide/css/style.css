@@ -1,0 +1,514 @@
+@charset "UTF-8";
+/* ============================================================
+ * * 色の設定
+ * * ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+h3, h4, h5, p, a {
+  color: #000;
+}
+
+/* ============================================================
+ * * フォント設定
+ * * ============================================================ */
+body {
+  color: #000;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body, h1, h2, h3, p, figure, ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../assets/fonts/NotoSansCJKjp-Regular.woff2") format("woff2"), url("../assets/fonts/NotoSansCJKjp-Regular.woff") format("woff"), url("../assets/fonts/NotoSansCJKjp-Regular.ttf") format("truetype");
+  font-family: "Noto Sans JP";
+}
+@font-face {
+  font-style: normal;
+  font-weight: 500;
+  src: url("../../assets/fonts/NotoSansCJKjp-Medium.woff2") format("woff2"), url("../assets/fonts/NotoSansCJKjp-Medium.woff") format("woff"), url("../assets/fonts/NotoSansCJKjp-Medium.ttf") format("truetype");
+  font-family: "Noto Sans JP";
+}
+@font-face {
+  font-style: normal;
+  font-weight: 800;
+  src: url("../../assets/fonts/NotoSansCJKjp-Bold.woff2") format("woff2"), url("../assets/fonts/NotoSansCJKjp-Bold.woff") format("woff"), url("../assets/fonts/NotoSansCJKjp-Bold.ttf") format("truetype");
+  font-family: "Noto Sans JP";
+}
+@font-face {
+  font-style: normal;
+  font-weight: 900;
+  src: url("../../assets/fonts/NotoSansCJKjp-Black.woff2") format("woff2"), url("../assets/fonts/NotoSansCJKjp-Black.woff") format("woff"), url("../assets/fonts/NotoSansCJKjp-Black.ttf") format("truetype");
+  font-family: "Noto Sans JP";
+}
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* ============================================================
+ * * インナー幅設定
+ * * ============================================================ */
+/* ============================================================
+ * * メディアクエリとブレークポイントの設定
+ * * ============================================================ */
+/* ============================================================
+ * * サイズの設定
+ * * ============================================================ */
+/* ============================================================
+ * * 非表示の設定
+ * * ============================================================ */
+.u-desktop {
+  display: none;
+}
+@media (min-width: 768px) {
+  .u-desktop {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .u-mobile {
+    display: none;
+  }
+}
+
+/* ボタン */
+.btn {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+  -webkit-transition: 0.25s;
+  display: inline-block;
+  width: 300px;
+  max-width: 100%;
+  padding: 20px 10px;
+  border: 2px solid transparent;
+  background-color: #e25c00;
+          box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+  color: #fff;
+  font-size: 18px;
+  font-size: 1.125rem;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.25s;
+}
+.btn:hover, .btn:focus {
+  border-color: currentColor;
+  background-color: #fff;
+  color: #e25c00;
+}
+
+.btn--arrowRight {
+  position: relative;
+  padding-right: 2em;
+  padding-left: 1.38em;
+}
+.btn--arrowRight:after {
+  -webkit-transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  right: 0.83em;
+          transform: translateY(-50%);
+  content: "➡";
+  font-weight: 900;
+  font-family: "Font Awesome";
+}
+
+.btn--large {
+  width: 340px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size: 22px;
+  font-size: 1.375rem;
+}
+
+.btn--warning {
+  background-color: #00f178;
+  color: #222;
+}
+.btn--warning:hover, .btn--warning:focus {
+  border-color: currentColor;
+  background-color: #fff;
+  color: #00f178;
+}
+
+.roundedBtn {
+  -webkit-transition: 0.25s;
+  display: inline-block;
+  width: 236px;
+  max-width: 100%;
+  padding: 15px 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  border-bottom-color: #d40152;
+  background-color: #e25c00;
+  color: #fff;
+  font-size: 18px;
+  font-size: 1.125rem;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.25s;
+}
+.roundedBtn:hover, .roundedBtn:focus {
+  border-color: currentColor;
+  background-color: #fff;
+  color: #e25c00;
+}
+
+/* カード */
+.card {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid #ddd;
+  color: inherit;
+  text-decoration: none;
+}
+
+.card__img {
+  text-align: center;
+}
+
+.card__img img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.card__body {
+  padding: 16px 12px;
+}
+
+.card__time {
+  display: inline-block;
+  font-size: 13px;
+}
+
+.card__title {
+  margin-top: 4px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.card__excerpt {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.cards {
+  -ms-flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+      flex-wrap: wrap;
+}
+
+.cards__item {
+  width: calc(33.3% - 10.66667px);
+  margin-top: 16px;
+  margin-right: 16px;
+}
+
+.cards__item:nth-child(-n+3) {
+  margin-top: 0;
+}
+
+.cards__item:nth-child(3n) {
+  margin-right: 0;
+}
+
+/* ギャラリー */
+.gallery {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+  -ms-flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+          flex-direction: row;
+      flex-wrap: wrap;
+}
+
+.gallery-item {
+  width: calc(33.33333% - 10px);
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+.gallery-item:nth-of-type(3n) {
+  margin-right: 0;
+}
+.gallery-item img {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 576px) {
+  .gallery-item {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+/* 見出し */
+.heading {
+  border-radius: 10px;
+}
+
+/* アイコン */
+.beforeIcon::before {
+  display: inline-block;
+  margin-right: 0.3em;
+  color: #e25c00;
+  font-weight: 400;
+  font-family: "Font Awesome 5 Free";
+}
+
+.beforeIcon--pdf::before {
+  content: "\f1c1";
+}
+
+/* アイコン付きボタン */
+.beforeIconBtn {
+  -webkit-transition: 0.25s;
+  display: inline-block;
+  position: relative;
+  padding: 0.2em 0.3em;
+  border: 1px solid currentColor;
+  color: #e25c00;
+  text-decoration: none;
+  transition: 0.25s;
+}
+.beforeIconBtn:hover, .beforeIconBtn:focus {
+  background-color: #e25c00;
+  color: #fff;
+}
+.beforeIconBtn::before {
+  display: inline-block;
+  margin-right: 0.5em;
+  font-weight: 900;
+  font-family: "Font Awesome 5 Free";
+}
+
+.beforeIconBtn--download::before {
+  content: "\f019";
+}
+
+/* ラベル */
+.label {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14.4px;
+  font-size: 0.9rem;
+}
+
+.label--warning {
+  background-color: #f1de00;
+  color: #000;
+}
+
+.label--link {
+  -webkit-transition: 0.25s;
+  text-decoration: none;
+  transition: 0.25s;
+}
+.label--link:focus, .label--link:hover {
+  border-color: currentColor;
+  background-color: #fff;
+  color: #e25c00;
+}
+
+/* メディア */
+.media {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+          align-items: center;
+  border: 1px solid #000000;
+}
+
+.media__imgWrapper {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 27.58333%;
+          flex: 0 1 27.58333%;
+  margin-right: 3.33333%;
+}
+
+.media__img {
+  width: 100%;
+}
+
+.media__body {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.media__body > *:last-child {
+  margin-bottom: 0;
+}
+
+.media__title {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+
+.media--reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.media--reverse .media__imgWrapper {
+  margin-right: 0;
+}
+
+.media--reverse .media__body {
+  margin-right: 3.33333%;
+  text-align: right;
+}
+
+.halfMedia {
+  -ms-flex-item-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+      align-self: center;
+  border: 1px solid #000000;
+}
+
+.halfMedia__imgWrapper {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 48.33333%;
+          flex: 0 1 48.33333%;
+  margin-right: 3.33333%;
+}
+
+.halfMedia__img {
+  width: 100%;
+}
+
+.halfMedia__body {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.halfMedia__body > *:last-child {
+  margin-bottom: 0;
+}
+
+.halfMedia__title {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+
+@media screen and (max-width: 768px) {
+  .media {
+    display: block;
+  }
+  .media__imgWrapper {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+/* 投稿リスト */
+.postList__item {
+  position: relative;
+  padding: 20px 30px;
+  border-bottom: 1px solid #dddddd;
+}
+.postList__item:first-of-type {
+  border-top: 1px solid #dddddd;
+}
+.postList__item::after {
+  -webkit-transform: translateY(-50%);
+  -webkit-transition: 0.5s;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 20px;
+  height: 20px;
+          transform: translateY(-50%);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  content: "⇀";
+  font-size: 18px;
+  transition: 0.5s;
+}
+.postList__item:hover::after {
+  -webkit-transition: 0.5s;
+  right: -10px;
+  transition: 0.5s;
+}
+
+.postItem {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+          flex-direction: row;
+          align-items: center;
+}
+.postItem__right {
+  font-size: 19.2px;
+  font-size: 1.2rem;
+}
+@media (min-width: 576px) {
+  .postItem__left {
+    margin-top: 0 !important;
+  }
+}
+
+.postItemLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.postItem__title {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.postItem__title:hover {
+  -webkit-transition: 0.5s;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+/**
+ * * コンポーネント
+ * * サイト内で使い回すパーツのスタイル
+ * **/
+/* ==========================================================================
+ *  Site Settings
+ * ========================================================================== */
+/* ==========================================================================
+ * component
+ * ========================================================================== */
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,65 @@
+/* 投稿リスト */
+@use '../global' as c
+    
+.postList__item
+    padding: 20px 30px
+    border-bottom: 1px solid #dddddd
+    position: relative
+    &:first-of-type
+        border-top: 1px solid #dddddd
+    &::after
+        content: "⇀"
+        width: 20px
+        height: 20px
+        font-size: 18px
+        // background-image: url("#{$img}/arrow-right--black.png")
+        background-size: contain
+        background-position: center
+        background-repeat: no-repeat
+        display: inline-block
+        position: absolute
+        top: 50%
+        right: 0
+        transform: translateY(-50%)
+        transition: .5s
+    &:hover
+        &::after
+            right: -10px
+            transition: .5s
+
+.postItem
+    display: flex
+    flex-direction: row
+    align-items: center
+    &__right
+        font-size: 1.2rem
+    +c.sm
+        &__left
+            margin-top: 0 !important
+
+.postItemLink
+    text-decoration: none
+    color: inherit
+    
+.postItem__title
+    transition: .5s
+    // &::after
+    //     transition: all .5s
+    //     margin-top: -2px
+    //     width: 0%
+    //     display: block
+    //     content: ""
+    //     height: 2px
+    //     background-color: #000
+    //     // transform: scaleX(0)
+    &:hover
+        opacity: .7  
+        transition: .5s
+        // &::after
+        //     transition: all .5s
+        //     content: ""
+        //     height: 2px
+        //     width: 100%
+        //     background-color: #000
+        //     // transform: scaleX(1)
+            
