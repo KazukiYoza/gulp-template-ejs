@@ -1,7 +1,7 @@
 静的ページをコーディングする用のリポジトリ
 
 ## ソースコードをダウンロード
-git clone https://github.com/haniwaman/template-ejs.git
+git clone https://github.com/KazukiYoza/gulp-template-ejs.git
 
 ## リポジトリ移動
 cd gulp-template-ejs
