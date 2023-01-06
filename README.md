@@ -1,5 +1,8 @@
 静的ページをコーディングする用のリポジトリ
 
+gulp v4.0.2
+node v14.18.2
+
 ## ソースコードをダウンロード
 git clone https://github.com/KazukiYoza/gulp-template-ejs.git
 
