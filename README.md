@@ -6,7 +6,7 @@ git clone https://github.com/haniwaman/template-ejs.git
 ## リポジトリ移動
 cd template-ejs
 
-## モジュールをインストール
+## パッケージをインストール
 npm install
 
 ## gulpを起動
