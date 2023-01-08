@@ -14,9 +14,8 @@ const rename = require("gulp-rename"); //拡張子の変更
 const srcPath = {
     css: "src/scss/**/*.scss",
     img: "src/img/**/*",
-    js: ["src/js/**/", "!src/js/**/*"],
+    js: "src/js/**/*.js",
     ejs: ["src/ejs/**/*.ejs", "!" + "src/ejs/**/_*.ejs"],
-    pug: ["src/pug/**/*.pug", "!" + "src/pug/**/_*.pug"],
 }
 
 // 出力先のリポジトリ
@@ -66,8 +65,8 @@ const browsers = [
  * jsファイルのビルド処理
  */
 const uglify = require("gulp-uglify");
-const webpackStream = require("webpack-stream");
-const webpack = require("webpack");
+const concat = require('gulp-concat');
+
 
 /**
  * ejsを読み込む
@@ -79,10 +78,6 @@ const data = require("./src/data/data.json");
 
 // const fs = require("fs");
 
-/**
- * pugを読み込む
- */
-const pug = require("gulp-pug");
 
 
 // sassファイルのコンパイル
@@ -111,31 +106,6 @@ const cssSass = () => {
 }
 
 
-// コンポーネント用のsassファイルのコンパイル
-const cssSassComponent = () => {
-    return src(["styleguide/sass/**/*.sass"])
-        .pipe(sourcemaps.init())
-        .pipe(
-            plumber({
-                errorHandler: notify.onError("Error:<%= error.message %>")
-            }))
-        .pipe(sassGlob())
-        .pipe(sass.sync({
-            includePaths: ["styleguide/sass"],
-            outputStyle: "expanded"
-        }))
-        .pipe(postcss([cssnext(browsers)]))
-        .pipe(postcss([cssDeclarationSorter({
-            order: "smacss"
-        })]))
-        .pipe(sourcemaps.write("./"))
-        .pipe(dest(["styleguide/css"]))
-        .pipe(notify({
-            message: "コンポーネント用のsassのコンパイルが完了しました。",
-            onLast: true
-        }))
-}
-
 // ejsファイルのコンパイル
 const ejsCompile = () => {
     // const data = JSON.parse(fs.readFileSync("src/data/data.json")); //JSONデータを使用する場合はコメントを外す
@@ -161,53 +131,42 @@ const ejsCompile = () => {
 };
 
 
-// jsの圧縮
-const jsTranspile = () => {
-    return src("src/js/**/*.js") //読み込み元
-        .pipe(
-            plumber({
-                errorHandler: notify.onError("<%= error.message %>"),
-            }))
-        .pipe(uglify())
-        .pipe(dest(destPath.js))
-        .pipe(notify({
-            message: "jsのコンパイルが完了しました。",
-            onLast: true
-        }));
-};
-
-const jsCompile = () => {
+// jsのバンドル
+const jsBundle = () => {
     return src(srcPath.js)
     .pipe(
         plumber({
             errorHandler: notify.onError("<%= error.message %>"),
         }))
-    .pipe(uglify())
+    .pipe(concat('main.js'))//main.jsに他のjsファイルをconcat
+    // .pipe(uglify()) //jsファイルを圧縮する
     .pipe(dest(destPath.js))
     .pipe(notify({
-        message: "jsのコンパイルが完了しました。",
+        message: "jsのバンドルが完了しました。",
         onLast: true
     }));
 };
 
+// const webpack = require("webpack");
+// const webpackStream = require("webpack-stream");
 
-// webpackでjsファイルのビルド
-const jsBuild = () => {
-    // webpack.config.js 読込
-    const webpackConfigPath = "./webpack.config.js";
-    delete require.cache[webpackConfigPath];
-    const webpackConfig = require(webpackConfigPath);
+// // webpackでjsファイルのバインドを実行
+// const jsBundleWebpack = () => {
+//     // webpack.config.js 読込
+//     const webpackConfigPath = "./webpack.config.js";
+//     delete require.cache[webpackConfigPath];
+//     const webpackConfig = require(webpackConfigPath);
 
-    // webpack 実行
-    return webpackStream(webpackConfig, webpack).on("error", function (e) {
-            this.emit("end");
-        })
-        .pipe(dest(destPath.js))
-        .pipe(notify({
-            message: "jsのビルドが完了しました。",
-            onLast: true
-        }));
-};
+//     // webpack 実行
+//     return webpackStream(webpackConfig, webpack).on("error", function (e) {
+//             this.emit("end");
+//         })
+//         .pipe(dest(destPath.js))
+//         .pipe(notify({
+//             message: "jsのビルドが完了しました。",
+//             onLast: true
+//         }));
+// };
 
 
 // 画像圧縮
@@ -237,9 +196,7 @@ const imgImagemin = () => {
 const watchFiles = () => {
     watch(srcPath.ejs, series(ejsCompile, browserSyncReload)); //ejsを使用する場合
     watch(srcPath.css, series(cssSass, browserSyncReload))
-    watch("styleguide/sass/**/*.sass", series(cssSassComponent, browserSyncReload))
-    watch(srcPath.js, series(jsBuild, browserSyncReload))
-    // watch(srcPath.js, series(jsCompile, browserSyncReload))
+    watch(srcPath.js, series(jsBundle, browserSyncReload))
     watch(srcPath.img, series(imgImagemin, browserSyncReload))
 }
 
@@ -273,12 +230,7 @@ const clean = (done) => {
 
 
 // npx gulpで出力する内容
-exports.default = series(series(clean, cssSass, cssSassComponent, ejsCompile, jsBuild, imgImagemin), parallel(watchFiles, browserSyncFunc));
-// exports.default = series(series(clean, cssSass, ejsCompile, jsCompile, imgImagemin), parallel(watchFiles, browserSyncFunc));
-// exports.default = series(series(clean, cssSass, ejsCompile, jsBuild), parallel(watchFiles, browserSyncFunc));
-// exports.default = series(series(cssSass,ejsCompile), parallel(watchFiles, browserSyncFunc));//ejsを使用する場合
-// exports.default = series(series(cssSass,pugCompile), parallel(watchFiles, browserSyncFunc));//pugを使用する場合
-
+exports.default = series(series(clean, cssSass, ejsCompile,  jsBundle, imgImagemin), parallel(watchFiles, browserSyncFunc));
 
 // npx gulp del → 画像最適化（重複を削除）
 // exports.del = series(series(clean, cssSass, imgImagemin), parallel(watchFiles, browserSyncFunc));
