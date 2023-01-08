@@ -7,6 +7,7 @@
     "@whitespace/storybook-addon-html": "^5.0.0",
     "css-declaration-sorter": "^6.3.0",
     "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
     "gulp-htmlhint": "^4.0.2",
     "gulp-notify": "^4.0.0",
     "gulp-plumber": "^1.2.1",
@@ -21,8 +22,8 @@
     "postcss": "^8.4.16",
     "postcss-cssnext": "^3.1.1",
     "storybook": "^6.5.10",
-    "webpack": "^5.74.0",
-    "webpack-stream": "^7.0.0"
+    "vinyl-named": "^1.1.0",
+    "webpack": "^4.46.0"
   },
   "name": "gulp-coding-template",
   "version": "1.0.0",
@@ -48,7 +49,8 @@
     "imagemin-svgo": "^9.0.0",
     "sass": "^1.54.8",
     "sass-loader": "^10.1.1",
-    "style-loader": "^3.3.1"
+    "style-loader": "^3.3.1",
+    "webpack-stream": "^7.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
